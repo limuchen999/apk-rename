@@ -603,6 +603,27 @@ def modify_package_name(work_dir, new_pkg):
         warn("新包名与原包名相同，无需修改")
         return old_pkg
 
+    # 先展开相对类名（以 . 开头）为基于旧包名的绝对路径
+    _component_tags = ('activity', 'activity-alias', 'service', 'receiver',
+                       'provider', 'application', 'instrumentation')
+
+    def _expand_relative(tag_match):
+        tag_text = tag_match.group(0)
+        tag_text = re.sub(r'(android:name=")\.',
+                          lambda m: m.group(1) + old_pkg + '.',
+                          tag_text)
+        tag_text = re.sub(r'(android:targetActivity=")\.',
+                          lambda m: m.group(1) + old_pkg + '.',
+                          tag_text)
+        return tag_text
+
+    for _tag in _component_tags:
+        content = re.sub(
+            r'<' + _tag + r'\b[^>]*?>',
+            _expand_relative,
+            content
+        )
+
     def replace_pkg(match):
         tag = match.group(0)
         return re.sub(r'\bpackage="[^"]*"', f'package="{new_pkg}"', tag, count=1)
