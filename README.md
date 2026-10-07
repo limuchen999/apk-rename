@@ -104,43 +104,42 @@
 ## 输出示例
 
     ========== 执行计划 ==========
-      源 APK    : /storage/emulated/0/Download/v2rayNG.apk
-      新包名    : com.text.v2rayng
-      输出位置  : /storage/emulated/0/Download/v2rayNG_modded.apk
-      临时目录  : /data/data/com.termux/files/home/.apk_rename_build
-      日志文件  : /data/data/com.termux/files/home/.apk_rename_logs/v2rayNG_20261007_082710.log
-      签名密钥  : /data/data/com.termux/files/home/apk_keys/mykey.keystore
+      源 APK    : /path/to/your_app.apk
+      新包名    : com.example.newapp
+      输出位置  : /path/to/your_app_modded.apk
+      ...
     ==============================
 
     确认开始？[Y/n]: y
 
     【1/6】反编译 APK
-    [✓] 反编译（跳过 smali）完成（耗时 15s）
-
+    [✓] 反编译完成（耗时 Xs）
+    
+    …
     【2/6】修改包名
-    [*] 原包名: com.v2ray.ang
-    [✓] 包名已修改为: com.text.v2rayng
+    [*] 原包名: com.xxx
+    [✓] 包名已修改为: com.text.xxx
 
     【3/6】回编译 APK
-    [✓] 回编译（跳过资源压缩）完成（耗时 21s）
+    [✓] 回编译（跳过资源压缩）完成（耗时 Xs）
 
     【4/6】签名 APK
     [✓] 签名成功
 
     【5/6】验证结果
     [✓] 签名验证通过
-    [✓] 包名验证通过: com.text.v2rayng
+    [✓] 包名验证通过: com.text.xxx
 
     【6/6】输出结果
     [✓] 已复制到源 APK 同目录
     [✓] 临时文件已清理
 
     ========== 结果摘要 ==========
-    [✓] 输出文件  : /storage/emulated/0/Download/v2rayNG_modded.apk
-      文件大小  : 31.5 MB
-      原包名    : com.v2ray.ang
-      新包名    : com.text.v2rayng
-      总耗时    : 45s
+    [✓] 输出文件  : /storage/emulated/0/xxx.apk
+      文件大小  : xx.x MB
+      原包名    : com.xxx
+      新包名    : com.text.xxx
+      总耗时    : Xs
     ==============================
 
 ---
